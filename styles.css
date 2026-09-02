@@ -1,0 +1,134 @@
+/* Tailwind-like base CSS & Custom High-Tech Cyber Styling */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-tech-dark: #070b14;
+  --color-cyan-glow: #00f3ff;
+  --color-indigo-glow: #6366f1;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--color-tech-dark);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: #e2e8f0;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #070b14;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 243, 255, 0.3);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 243, 255, 0.6);
+}
+
+/* Ambient Grid Overlay */
+.grid-overlay {
+  background-image: 
+    linear-gradient(to right, rgba(0, 243, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 243, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Glassmorphism Card */
+.glass-card {
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+/* Text Gradient */
+.text-gradient {
+  background: linear-gradient(135deg, #00f3ff 0%, #3b82f6 50%, #a855f7 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Cyber Button Effects */
+.cyber-btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.cyber-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(0, 243, 255, 0.2), transparent);
+  transition: 0.5s;
+}
+
+.cyber-btn:hover::before {
+  left: 100%;
+}
+
+/* Timeline Components */
+.timeline-line::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 8px;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #00f3ff, #6366f1, transparent);
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -31px;
+  top: 24px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #00f3ff;
+  box-shadow: 0 0 10px #00f3ff;
+}
+
+/* Nav Link Animation */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #00f3ff;
+  box-shadow: 0 0 8px #00f3ff;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Active Thumbnail Frame */
+.hero-thumb.active {
+  border-color: #00f3ff !important;
+  box-shadow: 0 0 12px rgba(0, 243, 255, 0.5);
+}
+
+/* Animation utilities */
+@keyframes tilt {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(1deg); }
+}
+
+.animate-tilt {
+  animation: tilt 10s infinite linear;
+}
